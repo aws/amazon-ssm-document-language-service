@@ -1,0 +1,43 @@
+{
+    "name": "aws-ssm-document-language-service",
+    "displayName": "AWS Systems Manager Document Language Service",
+    "description": "A language server for AWS Systems Manager documents",
+    "version": "1.0.0-SNAPSHOT",
+    "publisher": "aws",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aws/amazon-ssm-document-language-service"
+    },
+    "bugs": {
+        "url": "https://github.com/aws/amazon-ssm-document-language-service/issues"
+    },
+    "keywords": [
+        "AWS",
+        "SSM",
+        "LSP"
+    ],
+    "main": "out/ssmServer.js",
+    "types": "out/ssmServer.d.ts",
+    "devDependencies": {
+        "@types/node": "^14.0.11",
+        "@typescript-eslint/eslint-plugin": "^4.1.0",
+        "@typescript-eslint/parser": "^4.1.0",
+        "eslint": "^7.8.1",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "typescript": "^3.9.5"
+    },
+    "dependencies": {
+        "vscode-json-languageservice": "3.8.3",
+        "vscode-languageserver": "^6.1.1",
+        "yaml-language-server": "0.10.1"
+    },
+    "scripts": {
+        "prepublish": "npm run clean && npm run lint && npm run compile",
+        "clean": "rm -rf out/*",
+        "lint": "eslint -c .eslintrc.js --ext .ts .",
+        "lint:fix": "eslint -c .eslintrc.js --fix --ext .ts .",
+        "compile": "tsc -p ./"
+    }
+}
