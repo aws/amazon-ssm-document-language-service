@@ -4,6 +4,9 @@
  */
 
 import { JsonLS } from "../ssmLanguageService";
+import { fileDefinition } from "./automation/fileDefinition";
+import { parameterDefinition } from "./automation/parameterDefinition";
+import { stepDefinition } from "./automation/stepDefinition";
 
 export const ssmDocumentSchema: JsonLS.JSONSchema = {
     $schema: "http://json-schema.org/draft-07/schema",
@@ -29,7 +32,7 @@ export const ssmDocumentSchema: JsonLS.JSONSchema = {
             description:
                 "A structure that defines the parameters the document accepts. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them. You can reference String and StringList Parameter Store parameters in this section of a document. You can't reference SecureString Parameter Store parameters in this section of a document. For more information, see AWS Systems Manager Parameter Store.",
             patternProperties: {
-                "^.*$": { type: "object" },
+                "^.*$": parameterDefinition,
             },
             additionalProperties: false,
         },
@@ -37,7 +40,7 @@ export const ssmDocumentSchema: JsonLS.JSONSchema = {
             type: "array",
             description:
                 "An array that can include multiple steps. Steps run in sequential order as listed in the document.",
-            items: { type: "object" },
+            items: stepDefinition,
             minItems: 1,
         },
         outputs: {
@@ -53,7 +56,7 @@ export const ssmDocumentSchema: JsonLS.JSONSchema = {
             description:
                 'The script files (and their checksums) attached to the document and run during an automation execution. Applies only to documents that include the "aws:executeScript" action and for which attachments have been specified in one or more steps.',
             patternProperties: {
-                "^.*$": { type: "object" },
+                "^.*$": fileDefinition,
             },
             additionalProperties: false,
         },
