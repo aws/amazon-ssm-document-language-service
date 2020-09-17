@@ -38,15 +38,5 @@ export const copyImageInputs: JsonLS.JSONSchema = {
             },
             required: ["SourceRegion", "SourceImageId", "ImageName"],
         },
-        outputs: {
-            properties: {
-                ImageId: {
-                    description: "The ID of the copied image.",
-                },
-                ImageState: {
-                    description: "The state of the copied image.",
-                },
-            },
-        },
     },
 };

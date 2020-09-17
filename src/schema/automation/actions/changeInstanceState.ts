@@ -10,7 +10,7 @@ export const changeInstanceStateInputs: JsonLS.JSONSchema = {
                 InstanceIds: {
                     description: "The IDs of the instances.",
                 },
-                CheckStateOnlt: {
+                CheckStateOnly: {
                     description:
                         "If false, sets the instance state to the desired state. If true, asserts the desired state using polling.",
                     type: ["boolean", "string"],

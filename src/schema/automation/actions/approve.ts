@@ -23,22 +23,10 @@ export const approveInputs: JsonLS.JSONSchema = {
                 Approvers: {
                     description:
                         "A list of AWS authenticated principals who are able to either approve or reject the action. The maximum number of approvers is 10. You can specify principals by using any of the following formats:\n\nAn AWS Identity and Access Management (IAM) user name\n\nAn IAM user ARN\n\nAn IAM role ARN\n\nAn IAM assume role user ARN",
+                    type: "StringList",
                 },
             },
             required: ["Approvers"],
-        },
-        outputs: {
-            properties: {
-                ApprovalStatus: {
-                    description:
-                        "The approval status of the step. The status can be one of the following: Approved, Rejected, or Waiting. Waiting means that Automation is waiting for input from approvers.",
-                    type: "string",
-                },
-                ApproverDecisions: {
-                    description: "A JSON map that includes the approval decision of each approver.",
-                    type: "object",
-                },
-            },
         },
     },
     required: ["inputs"],

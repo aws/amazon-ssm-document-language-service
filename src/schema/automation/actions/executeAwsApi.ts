@@ -16,22 +16,8 @@ export const executeAwsApiInputs: JsonLS.JSONSchema = {
                     type: "string",
                 },
             },
+            additionalProperties: true,
             required: ["Service"],
-        },
-        outputs: {
-            properties: {
-                Name: {
-                    description: "A name for the output.",
-                    type: "string",
-                },
-                Selector: {
-                    description: "The JSONPath to a specific attribute in the response object.",
-                },
-                Type: {
-                    description: "The data type for the response element.",
-                },
-            },
-            required: ["Name", "Type", "Selector"],
         },
     },
 };

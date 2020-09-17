@@ -23,6 +23,7 @@ export const waitForAwsResourcePropertyInputs: JsonLS.JSONSchema = {
                     description: "The expected status or state on which to continue the Automation workflow.",
                 },
             },
+            additionalProperties: true,
             required: ["Service", "Api", "PropertySelector", "DesiredValues"],
         },
     },

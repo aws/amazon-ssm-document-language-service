@@ -98,5 +98,50 @@ export const parameterDefinition: JsonLS.JSONSchema = {
                 },
             },
         },
+        {
+            if: {
+                properties: { type: { const: "StringList" } },
+            },
+            then: {
+                properties: {
+                    default: {
+                        items: {
+                            type: "string",
+                        },
+                    },
+                },
+            },
+        },
+        {
+            if: {
+                properties: { type: { const: "StringMap" } },
+            },
+            then: {
+                properties: {
+                    default: {
+                        items: {
+                            type: "object",
+                        },
+                    },
+                },
+            },
+        },
+        {
+            if: {
+                properties: { type: { const: "MapList" } },
+            },
+            then: {
+                properties: {
+                    default: {
+                        items: {
+                            type: "array",
+                            items: {
+                                type: "object",
+                            },
+                        },
+                    },
+                },
+            },
+        },
     ],
 };
