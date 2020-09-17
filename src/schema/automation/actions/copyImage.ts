@@ -1,5 +1,9 @@
+/*!
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { JsonLS } from "../../../ssmLanguageService";
-import { SnippetDefinition } from "../../interfaces";
 
 export const copyImageInputs: JsonLS.JSONSchema = {
     description: "Copies an AMI from any region into the current region. This action can also encrypt the new AMI.",
