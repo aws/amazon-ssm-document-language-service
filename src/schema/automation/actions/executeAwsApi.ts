@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const executeAwsApiInputs: JsonLS.JSONSchema = {
     description:
@@ -28,7 +29,7 @@ export const executeAwsApiInputs: JsonLS.JSONSchema = {
 
 export const executeAwsApiSnippet: SnippetDefinition = {
     label: "Snippet: aws:executeAwsApi",
-    description: 
+    description:
         "Calls and runs AWS API actions. Most API actions are supported, although not all API actions have been tested.",
     body: {
         name: "${1:executeAwsApi}",

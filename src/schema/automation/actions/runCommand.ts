@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const runCommandInputs: JsonLS.JSONSchema = {
     description:
@@ -86,7 +87,7 @@ export const runCommandInputs: JsonLS.JSONSchema = {
 
 export const runCommandSnippet: SnippetDefinition = {
     label: "Snippet: aws:runCommand",
-    description: 
+    description:
         "Runs the specified commands.\n\nAutomation only supports output of one Run Command action. A document can include multiple Run Command actions, but output is supported for only one action at a time.",
     body: {
         name: "${1:runCommand}",

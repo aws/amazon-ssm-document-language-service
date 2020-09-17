@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const pauseInputs: JsonLS.JSONSchema = {
     description:
@@ -12,7 +13,7 @@ export const pauseInputs: JsonLS.JSONSchema = {
 
 export const pauseSnippet: SnippetDefinition = {
     label: "Snippet: aws:pause",
-    description:         
+    description:
         "This action pauses the Automation execution. Once paused, the execution status is Waiting. To continue the Automation execution, use the SendAutomationSignal API action with the Resume signal type.",
     body: {
         name: "${1:pause}",

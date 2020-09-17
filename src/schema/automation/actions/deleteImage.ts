@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const deleteImageInputs: JsonLS.JSONSchema = {
     description: "Deletes the specified image and all related snapshots.",

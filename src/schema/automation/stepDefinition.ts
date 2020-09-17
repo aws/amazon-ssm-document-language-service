@@ -5,7 +5,7 @@
 
 import { JsonLS } from "../../ssmLanguageService";
 import { approveInputs, approveSnippet } from "./actions/approve";
-import { assertAwsResourceProerptySnippet, assertAwsResourcePropertyInputs } from "./actions/assertAwsResourceProperty";
+import { assertAwsResourcePropertySnippet, assertAwsResourcePropertyInputs } from "./actions/assertAwsResourceProperty";
 import { branchInputs, branchSnippet } from "./actions/branch";
 import { changeInstanceStateInputs, changeInstanceStateSnippet } from "./actions/changeInstanceState";
 import { copyImageInputs, copyImageSnippet } from "./actions/copyImage";
@@ -23,7 +23,10 @@ import { pauseInputs, pauseSnippet } from "./actions/pause";
 import { runCommandInputs, runCommandSnippet } from "./actions/runCommand";
 import { runInstancesInputs, runInstancesSnippet } from "./actions/runInstances";
 import { sleepInputs, sleepSnippet } from "./actions/sleep";
-import { waitForAwsResourcePropertyInputs, waitForAwsResourcePropertySnippet } from "./actions/waitForAwsResourceProperty";
+import {
+    waitForAwsResourcePropertyInputs,
+    waitForAwsResourcePropertySnippet,
+} from "./actions/waitForAwsResourceProperty";
 
 export const stepDefinition: JsonLS.JSONSchema = {
     type: "object",
@@ -235,7 +238,7 @@ export const stepDefinition: JsonLS.JSONSchema = {
     ],
     defaultSnippets: [
         approveSnippet,
-        assertAwsResourceProerptySnippet,
+        assertAwsResourcePropertySnippet,
         branchSnippet,
         changeInstanceStateSnippet,
         copyImageSnippet,

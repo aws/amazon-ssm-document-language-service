@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const invokeLambdaFunctionInputs: JsonLS.JSONSchema = {
     description: "Invokes the specified Lambda function.",
