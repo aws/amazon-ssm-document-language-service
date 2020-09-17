@@ -116,10 +116,10 @@ export const runInstancesInputs: JsonLS.JSONSchema = {
 };
 
 export const runInstancesSnippet: SnippetDefinition = {
-    label: "aws:runInstances",
-    description: "aws:runInstances action snippet",
+    label: "Snippet: aws:runInstances",
+    description: "Launchs a new instance.",
     body: {
-        name: "${1:stepName}",
+        name: "${1:runInstances}",
         action: "aws:runInstances",
         maxAttempts: 3,
         timeoutSeconds: 1200,

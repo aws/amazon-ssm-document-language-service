@@ -33,10 +33,11 @@ export const executeAutomationInputs: JsonLS.JSONSchema = {
 };
 
 export const executeAutomationSnippet: SnippetDefinition = {
-    label: "aws:executeAutomation",
-    description: "aws:executeAutomation action snippet",
+    label: "Snippet: aws:executeAutomation",
+    description:
+        "Runs a secondary Automation workflow by calling a secondary Automation document. With this action, you can create Automation documents for your most common workflows, and reference those documents during an Automation execution. This action can simplify your Automation documents by removing the need to duplicate steps across similar documents.\n\nThe secondary Automation runs in the context of the user who initiated the primary Automation. This means that the secondary Automation uses the same IAM role or user account as the user who started the first Automation.",
     body: {
-        name: "executeAutomation",
+        name: "${1:executeAutomation}",
         action: "aws:executeAutomation",
         maxAttempts: 3,
         timeoutSeconds: 3600,

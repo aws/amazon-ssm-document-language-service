@@ -11,10 +11,11 @@ export const pauseInputs: JsonLS.JSONSchema = {
 };
 
 export const pauseSnippet: SnippetDefinition = {
-    label: "aws:pause",
-    description: "aws:pause action snippet",
+    label: "Snippet: aws:pause",
+    description:         
+        "This action pauses the Automation execution. Once paused, the execution status is Waiting. To continue the Automation execution, use the SendAutomationSignal API action with the Resume signal type.",
     body: {
-        name: "pause",
+        name: "${1:pause}",
         action: "aws:pause",
         inputs: {},
     },

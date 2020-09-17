@@ -39,12 +39,12 @@ export const assertAwsResourcePropertyInputs: JsonLS.JSONSchema = {
     },
 };
 
-export const assertAwsResourceProerptySnippet: SnippetDefinition = {
-    label: "aws:assertAwsResourceProerpty",
-    description: "aws:assertAwsResourceProerpty action snippet",
+export const assertAwsResourcePropertySnippet: SnippetDefinition = {
+    label: "Snippet: aws:assertAwsResourceProperty",
+    description: "The aws:assertAwsResourceProperty action enables you to assert a specific resource state or event state for a specific Automation step.For example, you can specify that an Automation step must wait for an EC2 instance to start. Then it will call the Amazon EC2 DescribeInstanceStatus API action with the DesiredValue property of running. This ensures that the Automation workflow waits for a running instance and then continues when the instance is, in fact, running.",
     body: {
-        name: "assertAwsResourceProerpty",
-        action: "aws:assertAwsResourceProerpty",
+        name: "${1:assertAwsResourceProperty}",
+        action: "aws:assertAwsResourceProperty",
         inputs: {
             Service: "The official namespace of the service",
             Api: "The API action or method name",

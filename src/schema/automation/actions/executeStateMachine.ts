@@ -29,10 +29,10 @@ export const executeStateMachineInputs: JsonLS.JSONSchema = {
 };
 
 export const executeStateMachineSnippet: SnippetDefinition = {
-    label: "aws:executeStateMachine",
-    description: "aws:executeStateMachine action snippet",
+    label: "Snippet: aws:executeStateMachine",
+    description: "Run an AWS Step Functions state machine.",
     body: {
-        name: "executeStateMachine",
+        name: "${1:executeStateMachine}",
         action: "aws:executeStateMachine",
         inputs: {
             stateMachineArn: "StateMachine_ARN",

@@ -21,10 +21,10 @@ export const deleteImageInputs: JsonLS.JSONSchema = {
 };
 
 export const deleteImageSnippet: SnippetDefinition = {
-    label: "aws:deleteImage",
-    description: "aws:deleteImage action snippet",
+    label: "Snippet: aws:deleteImage",
+    description: "Deletes the specified image and all related snapshots.",
     body: {
-        name: "deleteImage",
+        name: "${1:deleteImage}",
         action: "aws:deleteImage",
         maxAttempts: 3,
         timeoutSeconds: 180,

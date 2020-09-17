@@ -200,10 +200,11 @@ export const branchInputs: JsonLS.JSONSchema = {
 };
 
 export const branchSnippet: SnippetDefinition = {
-    label: "aws:branch",
-    description: "aws:branch action snippet",
+    label: "Snippet aws:branch",
+    description: 
+        "The aws:branch action enables you to create a dynamic Automation workflow that evaluates different choices in a single step and then jumps to a different step in the Automation document based on the results of that evaluation. \n\nWhen you specify the aws:branch action for a step, you specify Choices that the workflow must evaluate. The Choices can be based on either a value that you specified in the Parameters section of the Automation document, or a dynamic value generated as the output from the previous step. The Automation workflow evaluates each choice by using a Boolean expression. If the first choice is true, then the workflow jumps to the step designated for that choice. If the first choice is false, the workflow evaluates the next choice. The workflow continues evaluating each choice until it process a true choice. The workflow then jumps to the designated step for the true choice. \n\nIf none of the choices are true, the workflow checks to see if the step contains a default value. A default value defines a step that the workflow should jump to if none of the choices are true. If no default value is specified for the step, then the Automation workflow processes the next step in the document.\n\nThe aws:branch action supports complex choice evaluations by using a combination of And, Not, and Or operators.",
     body: {
-        name: "branch",
+        name: "${1:branch}",
         action: "aws:branch",
         inputs: {
             Choices: [

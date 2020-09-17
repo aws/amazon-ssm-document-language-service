@@ -46,10 +46,10 @@ export const copyImageInputs: JsonLS.JSONSchema = {
 };
 
 export const copyImageSnippet: SnippetDefinition = {
-    label: "aws:copyImage",
-    description: "aws:copyImage action snippet",
+    label: "Snippet: aws:copyImage",
+    description: "Copies an AMI from any region into the current region. This action can also encrypt the new AMI.",
     body: {
-        name: "copyImage",
+        name: "${1:copyImage}",
         action: "aws:copyImage",
         maxAttempts: 3,
         onFailure: "Abort",

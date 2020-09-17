@@ -39,10 +39,10 @@ export const createImageInputs: JsonLS.JSONSchema = {
 };
 
 export const createImageSnippet: SnippetDefinition = {
-    label: "aws:createImage",
-    description: "aws:createImage action snippet",
+    label: "Snippet: aws:createImage",
+    description: "Creates a new AMI from an instance that is either running or stopped.",
     body: {
-        name: "createImage",
+        name: "${1:createImage}",
         action: "aws:createImage",
         maxAttempts: 3,
         onFailure: "Abort",

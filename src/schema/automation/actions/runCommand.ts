@@ -85,10 +85,11 @@ export const runCommandInputs: JsonLS.JSONSchema = {
 };
 
 export const runCommandSnippet: SnippetDefinition = {
-    label: "aws:runCommand",
-    description: "aws:runCommand action snippet",
+    label: "Snippet: aws:runCommand",
+    description: 
+        "Runs the specified commands.\n\nAutomation only supports output of one Run Command action. A document can include multiple Run Command actions, but output is supported for only one action at a time.",
     body: {
-        name: "runCommand",
+        name: "${1:runCommand}",
         action: "aws:runCommand",
         inputs: {
             DocumentName: "AWS-RunPowerShellScript",

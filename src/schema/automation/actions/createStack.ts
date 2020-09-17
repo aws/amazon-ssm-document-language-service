@@ -122,10 +122,10 @@ export const createStackInputs: JsonLS.JSONSchema = {
 };
 
 export const createStackSnippet: SnippetDefinition = {
-    label: "aws:createStack",
-    description: "aws:createStack action snippet",
+    label: "Snippet: aws:createStack",
+    description: "Creates a new AWS CloudFormation stack from a template.",
     body: {
-        name: "createStack",
+        name: "${1:createStack}",
         action: "aws:createStack",
         maxAttempts: 1,
         onFailure: "Abort",

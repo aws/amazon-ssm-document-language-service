@@ -45,10 +45,10 @@ export const createTagsInputs: JsonLS.JSONSchema = {
 };
 
 export const createTagsSnippet: SnippetDefinition = {
-    label: "aws:createTags",
-    description: "aws:createTags action snippet",
+    label: "Snippet: aws:createTags",
+    description: "Create new tags for EC2 instances or Systems Manager managed instances.",
     body: {
-        name: "createTags",
+        name: "${1:createTags}",
         action: "aws:createTags",
         maxAttempts: 3,
         onFailure: "Abort",
