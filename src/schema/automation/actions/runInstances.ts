@@ -121,10 +121,30 @@ export const runInstancesSnippet: SnippetDefinition = {
     body: {
         name: "${1:stepName}",
         action: "aws:runInstances",
+        maxAttempts: 3,
         timeoutSeconds: 1200,
+        onFailure: "Abort",
         inputs: {
-            ImageId: "${2:ImageId}",
-            InstanceType: "${3:m1.small}",
+            ImageId: "ami-12345678",
+            InstanceType: "t2.micro",
+            MinInstanceCount: 1,
+            MaxInstanceCount: 1,
+            IamInstanceProfileName: "myRunCmdRole",
+            TagSpecifications: [
+                {
+                    ResourceType: "instance",
+                    Tags: [
+                        {
+                            Key: "LaunchedBy",
+                            Value: "SSMAutomation",
+                        },
+                        {
+                            Key: "Category",
+                            Value: "HighAvailabilityFleetHost",
+                        },
+                    ],
+                },
+            ],
         },
     },
 };

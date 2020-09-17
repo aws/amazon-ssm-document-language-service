@@ -24,3 +24,15 @@ export const sleepInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const sleepSnippet: SnippetDefinition = {
+    label: "aws:sleep",
+    description: "aws:sleep action snippet",
+    body: {
+        name: "sleep",
+        action: "aws:sleep",
+        inputs: {
+            Duration: "PT10M",
+        },
+    },
+};

@@ -54,3 +54,18 @@ export const invokeLambdaFunctionInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const invokeLambdaFunctionSnippet: SnippetDefinition = {
+    label: "aws:invokeLambdaFunction",
+    description: "aws:invokeLambdaFunction action snippet",
+    body: {
+        name: "invokeLambdaFunction",
+        action: "aws:invokeLambdaFunction",
+        maxAttempts: 3,
+        timeoutSeconds: 120,
+        onFailure: "Abort",
+        inputs: {
+            FunctionName: "MyLambdaFunction",
+        },
+    },
+};

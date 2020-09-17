@@ -44,3 +44,20 @@ export const copyImageInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const copyImageSnippet: SnippetDefinition = {
+    label: "aws:copyImage",
+    description: "aws:copyImage action snippet",
+    body: {
+        name: "copyImage",
+        action: "aws:copyImage",
+        maxAttempts: 3,
+        onFailure: "Abort",
+        inputs: {
+            SourceImageId: "ami-0fe10819",
+            SourceRegion: "ap-northeast-2",
+            ImageName: "Encrypted Copy of LAMP base AMI in ap-northeast-2",
+            Encrypted: true,
+        },
+    },
+};

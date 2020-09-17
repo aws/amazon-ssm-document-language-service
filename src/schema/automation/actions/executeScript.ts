@@ -49,3 +49,21 @@ export const executeScriptInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const executeScriptSnippet: SnippetDefinition = {
+    label: "aws:executeScript",
+    description: "aws:executeScript action snippet",
+    body: {
+        name: "executeScript",
+        action: "aws:executeScript",
+        inputs: {
+            Runtime: "python3.6",
+            Handler: "script_handler",
+            InputPayload: {
+                parameter1: "parameter_value1",
+                parameter2: "parameter_value2",
+            },
+            Attachment: "zip-file-name-1.zip",
+        },
+    },
+};
