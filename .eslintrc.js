@@ -15,7 +15,7 @@ const config = {
         es6: true,
         node: true,
     },
-    plugins: ["@typescript-eslint", "prettier"],
+    plugins: ["@typescript-eslint", "header", "prettier"],
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
@@ -24,6 +24,15 @@ const config = {
     ],
     rules: {
         "prettier/prettier": "error",
+        "header/header": [
+            "error",
+            "block",
+            {
+                pattern:
+                    "Copyright ([0-9]{4}[-,]{0,1}[ ]{0,1}){1,} Amazon.com, Inc. or its affiliates. All Rights Reserved.\\r?\\n \\* SPDX-License-Identifier: Apache-2.0",
+            },
+            { lineEndings: "unix" },
+        ],
     },
 };
 module.exports = config;
