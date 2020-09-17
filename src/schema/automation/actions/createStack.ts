@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const createStackInputs: JsonLS.JSONSchema = {
     description: "Creates a new AWS CloudFormation stack from a template.",

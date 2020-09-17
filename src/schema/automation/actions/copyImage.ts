@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const copyImageInputs: JsonLS.JSONSchema = {
     description: "Copies an AMI from any region into the current region. This action can also encrypt the new AMI.",

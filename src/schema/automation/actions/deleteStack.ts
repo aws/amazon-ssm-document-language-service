@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const deleteStackInputs: JsonLS.JSONSchema = {
     description: "Deletes an AWS CloudFormation stack.",

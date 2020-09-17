@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const createTagsInputs: JsonLS.JSONSchema = {
     description: "Create new tags for EC2 instances or Systems Manager managed instances.",

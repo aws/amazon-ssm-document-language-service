@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const executeStateMachineInputs: JsonLS.JSONSchema = {
     description: "Run an AWS Step Functions state machine.",

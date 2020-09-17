@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const executeScriptInputs: JsonLS.JSONSchema = {
     description:
@@ -52,7 +53,7 @@ export const executeScriptInputs: JsonLS.JSONSchema = {
 
 export const executeScriptSnippet: SnippetDefinition = {
     label: "Snippet: aws:executeScript",
-    description: 
+    description:
         "Runs the Python or PowerShell script provided, using the specified runtime and handler. (For PowerShell, the handler is not required.)\n\nCurrently, the aws:executeScript action contains the following preinstalled PowerShell Core modules.\n\n\tMicrosoft.PowerShell.Host\n\n\tMicrosoft.PowerShell.Management\n\n\tMicrosoft.PowerShell.Security\n\n\tMicrosoft.PowerShell.Utility\n\n\tPackageManagement\n\n\tPowerShellGet",
     body: {
         name: "${1:executeScript}",

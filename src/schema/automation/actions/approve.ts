@@ -4,6 +4,7 @@
  */
 
 import { JsonLS } from "../../../ssmLanguageService";
+import { SnippetDefinition } from "../../interfaces";
 
 export const approveInputs: JsonLS.JSONSchema = {
     properties: {
@@ -37,8 +38,8 @@ export const approveInputs: JsonLS.JSONSchema = {
 };
 
 export const approveSnippet: SnippetDefinition = {
-    label: "Snippet aws:approve",
-    description: 
+    label: "Snippet: aws:approve",
+    description:
         "Temporarily pauses an Automation execution until designated principals either approve or reject the action. After the required number of approvals is reached, the Automation execution resumes. You can insert the approval step any place in the mainSteps section of your Automation document.",
     body: {
         name: "${1:approve}",
