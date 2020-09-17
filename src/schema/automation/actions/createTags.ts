@@ -43,3 +43,28 @@ export const createTagsInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const createTagsSnippet: SnippetDefinition = {
+    label: "Snippet: aws:createTags",
+    description: "Create new tags for EC2 instances or Systems Manager managed instances.",
+    body: {
+        name: "${1:createTags}",
+        action: "aws:createTags",
+        maxAttempts: 3,
+        onFailure: "Abort",
+        inputs: {
+            ResourceType: "EC2",
+            ResourceIds: ["ami-9a3768fa", "i-02951acd5111a8169"],
+            Tags: [
+                {
+                    Key: "production",
+                    Value: "",
+                },
+                {
+                    Key: "department",
+                    Value: "devops",
+                },
+            ],
+        },
+    },
+};

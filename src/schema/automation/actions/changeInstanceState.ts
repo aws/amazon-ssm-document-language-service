@@ -43,3 +43,20 @@ export const changeInstanceStateInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const changeInstanceStateSnippet: SnippetDefinition = {
+    label: "Snippet: aws:changeInstanceState",
+    description: "Changes or asserts the state of the instance.\n\nThis action can be used in assert mode (do not run the API to change the state but verify the instance is in the desired state.) To use assert mode, set the CheckStateOnly parameter to true. This mode is useful when running the Sysprep command on Windows, which is an asynchronous command that can run in the background for a long time. You can ensure that the instance is stopped before you create an AMI.",
+    body: {
+        name: "${1:changeInstanceState}",
+        action: "aws:changeInstanceState",
+        maxAttempts: 3,
+        timeoutSeconds: 3600,
+        onFailure: "Abort",
+        inputs: {
+            InstanceIds: ["i-1234567890abcdef0"],
+            CheckStateOnly: true,
+            DesiredState: "stopped",
+        },
+    },
+};

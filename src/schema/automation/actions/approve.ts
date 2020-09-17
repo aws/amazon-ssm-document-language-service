@@ -35,3 +35,24 @@ export const approveInputs: JsonLS.JSONSchema = {
     },
     required: ["inputs"],
 };
+
+export const approveSnippet: SnippetDefinition = {
+    label: "Snippet aws:approve",
+    description: 
+        "Temporarily pauses an Automation execution until designated principals either approve or reject the action. After the required number of approvals is reached, the Automation execution resumes. You can insert the approval step any place in the mainSteps section of your Automation document.",
+    body: {
+        name: "${1:approve}",
+        action: "aws:approve",
+        inputs: {
+            NotificationArn: "arn:aws:sns:us-east-2:12345678901:AutomationApproval",
+            Message: "Please approve this step of the Automation.",
+            MinRequiredApprovals: 3,
+            Approvers: [
+                "IamUser1",
+                "IamUser2",
+                "arn:aws:iam::12345678901:user/IamUser3",
+                "arn:aws:iam::12345678901:role/IamRole",
+            ],
+        },
+    },
+};

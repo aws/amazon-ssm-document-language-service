@@ -24,3 +24,16 @@ export const sleepInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const sleepSnippet: SnippetDefinition = {
+    label: "Snippet: aws:sleep",
+    description: 
+        "Delays Automation execution for a specified amount of time. This action uses the International Organization for Standardization (ISO) 8601 date and time format.\n\nAutomation currently supports a maximum delay of 604800 seconds (7 days).",
+    body: {
+        name: "${1:sleep}",
+        action: "aws:sleep",
+        inputs: {
+            Duration: "PT10M",
+        },
+    },
+};

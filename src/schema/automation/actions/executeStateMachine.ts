@@ -27,3 +27,17 @@ export const executeStateMachineInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const executeStateMachineSnippet: SnippetDefinition = {
+    label: "Snippet: aws:executeStateMachine",
+    description: "Run an AWS Step Functions state machine.",
+    body: {
+        name: "${1:executeStateMachine}",
+        action: "aws:executeStateMachine",
+        inputs: {
+            stateMachineArn: "StateMachine_ARN",
+            input: '{"parameters":"values"}',
+            name: "name",
+        },
+    },
+};

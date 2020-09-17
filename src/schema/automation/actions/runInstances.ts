@@ -116,15 +116,35 @@ export const runInstancesInputs: JsonLS.JSONSchema = {
 };
 
 export const runInstancesSnippet: SnippetDefinition = {
-    label: "aws:runInstances",
-    description: "aws:runInstances action snippet",
+    label: "Snippet: aws:runInstances",
+    description: "Launchs a new instance.",
     body: {
-        name: "${1:stepName}",
+        name: "${1:runInstances}",
         action: "aws:runInstances",
+        maxAttempts: 3,
         timeoutSeconds: 1200,
+        onFailure: "Abort",
         inputs: {
-            ImageId: "${2:ImageId}",
-            InstanceType: "${3:m1.small}",
+            ImageId: "ami-12345678",
+            InstanceType: "t2.micro",
+            MinInstanceCount: 1,
+            MaxInstanceCount: 1,
+            IamInstanceProfileName: "myRunCmdRole",
+            TagSpecifications: [
+                {
+                    ResourceType: "instance",
+                    Tags: [
+                        {
+                            Key: "LaunchedBy",
+                            Value: "SSMAutomation",
+                        },
+                        {
+                            Key: "Category",
+                            Value: "HighAvailabilityFleetHost",
+                        },
+                    ],
+                },
+            ],
         },
     },
 };

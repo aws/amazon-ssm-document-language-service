@@ -32,3 +32,20 @@ export const waitForAwsResourcePropertyInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const waitForAwsResourcePropertySnippet: SnippetDefinition = {
+    label: "Snippet: aws:waitForAwsResourceProperty",
+    description:
+        "The aws:waitForAwsResourceProperty action enables your Automation workflow to wait for a specific resource state or event state before continuing the workflow.",
+    body: {
+        name: "${1:waitForAwsResourceProperty}",
+        action: "aws:waitForAwsResourceProperty",
+        inputs: {
+            Service: "The official namespace of the service",
+            Api: "The API action or method name",
+            "API action inputs or parameters": "A value",
+            PropertySelector: "Response object",
+            DesiredValues: ["Desired property value"],
+        },
+    },
+};

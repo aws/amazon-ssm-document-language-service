@@ -120,3 +120,20 @@ export const createStackInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const createStackSnippet: SnippetDefinition = {
+    label: "Snippet: aws:createStack",
+    description: "Creates a new AWS CloudFormation stack from a template.",
+    body: {
+        name: "${1:createStack}",
+        action: "aws:createStack",
+        maxAttempts: 1,
+        onFailure: "Abort",
+        inputs: {
+            Capabilities: ["CAPABILITY_IAM"],
+            StackName: "myStack",
+            TemplateURL: "http://s3.amazonaws.com/doc-example-bucket/myStackTemplate",
+            TimeoutInMinutes: 5,
+        },
+    },
+};

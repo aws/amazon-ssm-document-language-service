@@ -49,3 +49,22 @@ export const executeScriptInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const executeScriptSnippet: SnippetDefinition = {
+    label: "Snippet: aws:executeScript",
+    description: 
+        "Runs the Python or PowerShell script provided, using the specified runtime and handler. (For PowerShell, the handler is not required.)\n\nCurrently, the aws:executeScript action contains the following preinstalled PowerShell Core modules.\n\n\tMicrosoft.PowerShell.Host\n\n\tMicrosoft.PowerShell.Management\n\n\tMicrosoft.PowerShell.Security\n\n\tMicrosoft.PowerShell.Utility\n\n\tPackageManagement\n\n\tPowerShellGet",
+    body: {
+        name: "${1:executeScript}",
+        action: "aws:executeScript",
+        inputs: {
+            Runtime: "python3.6",
+            Handler: "script_handler",
+            InputPayload: {
+                parameter1: "parameter_value1",
+                parameter2: "parameter_value2",
+            },
+            Attachment: "zip-file-name-1.zip",
+        },
+    },
+};

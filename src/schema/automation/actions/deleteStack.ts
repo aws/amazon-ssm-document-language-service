@@ -46,3 +46,17 @@ export const deleteStackInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const deleteStackSnippet: SnippetDefinition = {
+    label: "Snippet: aws:deleteStack",
+    description: "Deletes an AWS CloudFormation stack.",
+    body: {
+        name: "${1:deleteStack}",
+        action: "aws:deleteStack",
+        maxAttempts: 1,
+        onFailure: "Abort",
+        inputs: {
+            StackName: "{{stackName}}",
+        },
+    },
+};
