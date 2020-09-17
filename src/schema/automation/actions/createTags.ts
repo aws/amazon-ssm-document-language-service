@@ -39,3 +39,28 @@ export const createTagsInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const createTagsSnippet: SnippetDefinition = {
+    label: "aws:createTags",
+    description: "aws:createTags action snippet",
+    body: {
+        name: "createTags",
+        action: "aws:createTags",
+        maxAttempts: 3,
+        onFailure: "Abort",
+        inputs: {
+            ResourceType: "EC2",
+            ResourceIds: ["ami-9a3768fa", "i-02951acd5111a8169"],
+            Tags: [
+                {
+                    Key: "production",
+                    Value: "",
+                },
+                {
+                    Key: "department",
+                    Value: "devops",
+                },
+            ],
+        },
+    },
+};

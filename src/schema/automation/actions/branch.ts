@@ -194,3 +194,27 @@ export const branchInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const branchSnippet: SnippetDefinition = {
+    label: "aws:branch",
+    description: "aws:branch action snippet",
+    body: {
+        name: "branch",
+        action: "aws:branch",
+        inputs: {
+            Choices: [
+                {
+                    NextStep: "runWindowsCommand",
+                    Variable: "{{Name of a parameter defined in the Parameters section. For example: OS_name}}",
+                    StringEquals: "windows",
+                },
+                {
+                    NextStep: "runLinuxCommand",
+                    Variable: "{{Name of a parameter defined in the Parameters section. For example: OS_name}}",
+                    StringEquals: "linux",
+                },
+            ],
+            Default: "sleep3",
+        },
+    },
+};

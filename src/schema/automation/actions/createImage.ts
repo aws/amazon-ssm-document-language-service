@@ -37,10 +37,12 @@ export const createImageSnippet: SnippetDefinition = {
     label: "aws:createImage",
     description: "aws:createImage action snippet",
     body: {
-        name: "${1:stepName}",
+        name: "createImage",
         action: "aws:createImage",
+        maxAttempts: 3,
+        onFailure: "Abort",
         inputs: {
-            InstanceId: "${2:InstanceId}",
+            InstanceId: "i-1234567890abcdef0",
             ImageName: "AMI Created on{{global:DATE_TIME}}",
             NoReboot: true,
             ImageDescription: "My newly created AMI",

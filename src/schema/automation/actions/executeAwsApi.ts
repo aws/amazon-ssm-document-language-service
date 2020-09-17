@@ -21,3 +21,24 @@ export const executeAwsApiInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const executeAwsApiSnippet: SnippetDefinition = {
+    label: "aws:executeAwsApi",
+    description: "aws:executeAwsApi action snippet",
+    body: {
+        name: "executeAwsApi",
+        action: "aws:executeAwsApi",
+        inputs: {
+            Service: "The official namespace of the service",
+            Api: "The API action or method name",
+            "API action inputs or parameters": "A value",
+        },
+        outputs: [
+            {
+                Name: "The name for a user-specified output key",
+                Selector: "A response object specified by using JSONPath format",
+                Type: "The data type",
+            },
+        ],
+    },
+};

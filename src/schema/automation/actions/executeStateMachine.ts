@@ -23,3 +23,17 @@ export const executeStateMachineInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const executeStateMachineSnippet: SnippetDefinition = {
+    label: "aws:executeStateMachine",
+    description: "aws:executeStateMachine action snippet",
+    body: {
+        name: "executeStateMachine",
+        action: "aws:executeStateMachine",
+        inputs: {
+            stateMachineArn: "StateMachine_ARN",
+            input: '{"parameters":"values"}',
+            name: "name",
+        },
+    },
+};

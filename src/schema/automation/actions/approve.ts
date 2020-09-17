@@ -31,3 +31,23 @@ export const approveInputs: JsonLS.JSONSchema = {
     },
     required: ["inputs"],
 };
+
+export const approveSnippet: SnippetDefinition = {
+    label: "aws:approve",
+    description: "aws:approve action snippet",
+    body: {
+        name: "approve",
+        action: "aws:approve",
+        inputs: {
+            NotificationArn: "arn:aws:sns:us-east-2:12345678901:AutomationApproval",
+            Message: "Please approve this step of the Automation.",
+            MinRequiredApprovals: 3,
+            Approvers: [
+                "IamUser1",
+                "IamUser2",
+                "arn:aws:iam::12345678901:user/IamUser3",
+                "arn:aws:iam::12345678901:role/IamRole",
+            ],
+        },
+    },
+};

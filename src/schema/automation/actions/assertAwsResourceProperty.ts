@@ -34,3 +34,19 @@ export const assertAwsResourcePropertyInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const assertAwsResourceProerptySnippet: SnippetDefinition = {
+    label: "aws:assertAwsResourceProerpty",
+    description: "aws:assertAwsResourceProerpty action snippet",
+    body: {
+        name: "assertAwsResourceProerpty",
+        action: "aws:assertAwsResourceProerpty",
+        inputs: {
+            Service: "The official namespace of the service",
+            Api: "The API action or method name",
+            "API action inputs or parameters": "A value",
+            PropertySelector: "Response object",
+            DesiredValues: ["Desired property values"],
+        },
+    },
+};

@@ -79,3 +79,19 @@ export const runCommandInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const runCommandSnippet: SnippetDefinition = {
+    label: "aws:runCommand",
+    description: "aws:runCommand action snippet",
+    body: {
+        name: "runCommand",
+        action: "aws:runCommand",
+        inputs: {
+            DocumentName: "AWS-RunPowerShellScript",
+            InstanceIds: ["{{InstanceIds}}"],
+            Parameters: {
+                commands: ["(Get-WmiObject -Class Win32_ComputerSystem).PartOfDomain"],
+            },
+        },
+    },
+};

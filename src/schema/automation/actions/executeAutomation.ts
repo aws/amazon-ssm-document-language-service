@@ -27,3 +27,21 @@ export const executeAutomationInputs: JsonLS.JSONSchema = {
         },
     },
 };
+
+export const executeAutomationSnippet: SnippetDefinition = {
+    label: "aws:executeAutomation",
+    description: "aws:executeAutomation action snippet",
+    body: {
+        name: "executeAutomation",
+        action: "aws:executeAutomation",
+        maxAttempts: 3,
+        timeoutSeconds: 3600,
+        onFailure: "Abort",
+        inputs: {
+            DocumentName: "secondaryWorkflow",
+            RuntimeParameters: {
+                instanceIds: ["i-1234567890abcdef0"],
+            },
+        },
+    },
+};
