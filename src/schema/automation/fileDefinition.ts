@@ -5,6 +5,14 @@
 
 import { JsonLS } from "../../ssmLanguageService";
 
+const sha256Definition = {
+    type: "string",
+    description: "SHA256 hash of the attachment content",
+    minLength: 64,
+    maxLength: 64,
+    pattern: "[A-Fa-f0-9]{64}",
+};
+
 export const fileDefinition: JsonLS.JSONSchema = {
     type: "object",
     description: "Attachment definition.",
@@ -13,17 +21,40 @@ export const fileDefinition: JsonLS.JSONSchema = {
         checksums: {
             type: "object",
             description: "Checksums of the attachment.",
-            required: ["sha256"],
-            properties: {
-                sha256: {
-                    type: "string",
-                    description: "SHA256 hash of the attachment content",
-                    minLength: 64,
-                    maxLength: 64,
-                    pattern: "[A-Fa-f0-9]{64}",
+            oneOf: [
+                {
+                    required: ["sha256"],
+                    properties: {
+                        sha256: sha256Definition,
+                    },
+                    additionalProperties: false,
                 },
-            },
-            additionalProperties: false,
+                {
+                    required: ["SHA256"],
+                    properties: {
+                        SHA256: sha256Definition,
+                    },
+                    additionalProperties: false,
+                },
+                {
+                    required: ["sha-256"],
+                    properties: {
+                        "sha-256": sha256Definition,
+                    },
+                    additionalProperties: false,
+                },
+                {
+                    required: ["SHA-256"],
+                    properties: {
+                        "SHA-256": sha256Definition,
+                    },
+                    additionalProperties: false,
+                },
+            ],
+        },
+        size: {
+            description: "Attachment size.",
+            type: "integer",
         },
     },
     additionalProperties: false,

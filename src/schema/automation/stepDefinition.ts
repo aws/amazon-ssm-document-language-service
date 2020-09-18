@@ -31,11 +31,14 @@ import {
 export const stepDefinition: JsonLS.JSONSchema = {
     type: "object",
     required: ["name", "action", "inputs"],
+    additionalProperties: false,
     properties: {
         name: {
+            description: "An identifier that must be unique across all step names in the document.",
             type: "string",
         },
         action: {
+            description: "Select the Automation action type to run in this step.",
             type: "string",
             enum: [
                 "aws:approve",
@@ -60,14 +63,18 @@ export const stepDefinition: JsonLS.JSONSchema = {
                 "aws:waitForAwsResourceProperty",
             ],
         },
-        maxAttemps: {
+        description: {
+            description: "Enter information to describe the purpose or usage of this step.",
+            type: "string",
+        },
+        maxAttempts: {
             description:
                 "The number of times the step should be retried in case of failure. If the value is greater than 1, the step is not considered to have failed until all retry attempts have failed. The default value is 1.",
             type: "integer",
             default: 1,
         },
         timeoutSeconds: {
-            type: "integer",
+            type: ["integer", "string"],
             description:
                 "The execution timeout value for the step. If the timeout is reached and the value of maxAttempts is greater than 1, then the step is not considered to have timed out until all retries have been attempted.",
         },
@@ -95,18 +102,26 @@ export const stepDefinition: JsonLS.JSONSchema = {
             type: ["string", "boolean"],
             default: true,
         },
+        inputs: {
+            description: "The properties specific to the action.",
+            type: "object",
+        },
         outputs: {
+            description: "Define new outputs for a step that can be referenced from other steps.",
             type: "array",
             items: {
                 type: "object",
                 properties: {
                     Name: {
+                        description: "Output variable name.",
                         type: "string",
                     },
                     Selector: {
+                        description: "JSONPath to select the value from the action output.",
                         type: "string",
                     },
                     Type: {
+                        description: "Output variable type.",
                         type: "string",
                         enum: ["String", "StringList", "Boolean", "Integer", "MapList", "StringMap"],
                     },
