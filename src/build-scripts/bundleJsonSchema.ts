@@ -17,4 +17,11 @@ console.log(`Saving JSON schema to "${fileAbsolutePath}"`);
 
 const jsonSchemaContent = JSON.stringify(ssmDocumentSchema);
 
+const parentFolder = path.dirname(fileRelativePath);
+if (!fs.existsSync(parentFolder)) {
+    fs.mkdirSync(parentFolder, {
+        recursive: true,
+    });
+}
+
 fs.writeFileSync(fileAbsolutePath, jsonSchemaContent, "utf8");
