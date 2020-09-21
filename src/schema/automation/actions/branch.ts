@@ -13,7 +13,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 StringEquals: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "string",
                 },
             },
@@ -21,7 +21,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 EqualsIgnoreCase: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "string",
                 },
             },
@@ -29,7 +29,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 StartsWith: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "string",
                 },
             },
@@ -45,7 +45,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 Contains: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "string",
                 },
             },
@@ -53,7 +53,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 NumericEquals: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "number",
                 },
             },
@@ -61,7 +61,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 NumericGreater: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "number",
                 },
             },
@@ -69,7 +69,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 NumericLesser: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "number",
                 },
             },
@@ -77,7 +77,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 NumericGreaterOrEquals: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "number",
                 },
             },
@@ -85,7 +85,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 NumericLesserOrEquals: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "number",
                 },
             },
@@ -93,7 +93,7 @@ const simpleCondition: JsonLS.JSONSchema = {
         {
             properties: {
                 BooleanEquals: {
-                    description: "Crtieria used to evaluate choice",
+                    description: "Criteria used to evaluate choice",
                     type: "boolean",
                 },
             },

@@ -7,7 +7,7 @@ import { JsonLS } from "../../../ssmLanguageService";
 import { SnippetDefinition } from "../../interfaces";
 
 export const runInstancesInputs: JsonLS.JSONSchema = {
-    description: "Launchs a new instance.",
+    description: "Launches a new instance.",
     properties: {
         inputs: {
             properties: {
@@ -22,18 +22,18 @@ export const runInstancesInputs: JsonLS.JSONSchema = {
                 },
                 MinInstanceCount: {
                     description: "The minimum number of instances to be launched.",
-                    type: "string",
+                    type: ["integer", "string"],
                 },
                 MaxInstanceCount: {
                     description: "The maximum number of instances to be launched.",
-                    type: "string",
+                    type: ["integer", "string"],
                 },
                 AdditionalInfo: {
                     description: "Reserved.",
                     type: "string",
                 },
                 BlockDeviceMappings: {
-                    description: "The block deviceds for the instance.",
+                    description: "The block devices for the instance.",
                     type: ["string", "array"],
                     items: {
                         type: "object",
@@ -48,7 +48,7 @@ export const runInstancesInputs: JsonLS.JSONSchema = {
                     type: ["boolean", "string"],
                 },
                 EbsOptimized: {
-                    description: "Enables or diables EBS optimization.",
+                    description: "Enables or disables EBS optimization.",
                     type: ["boolean", "string"],
                 },
                 IamInstanceProfileArn: {
@@ -117,7 +117,7 @@ export const runInstancesInputs: JsonLS.JSONSchema = {
 
 export const runInstancesSnippet: SnippetDefinition = {
     label: "Snippet: aws:runInstances",
-    description: "Launchs a new instance.",
+    description: "Launches a new instance.",
     body: {
         name: "${1:runInstances}",
         action: "aws:runInstances",

@@ -28,9 +28,6 @@ export const parameterDefinition: JsonLS.JSONSchema = {
             type: "array",
             description:
                 "(Optional) An array of values allowed for the parameter. Defining allowed values for the parameter validates the user input. If a user inputs a value that is not allowed, the execution fails to start.",
-            items: {
-                type: "string",
-            },
         },
         allowedPattern: {
             type: "string",
@@ -71,6 +68,11 @@ export const parameterDefinition: JsonLS.JSONSchema = {
                     default: {
                         type: "string",
                     },
+                    allowedValues: {
+                        items: {
+                            type: "string",
+                        },
+                    },
                 },
             },
         },
@@ -83,6 +85,11 @@ export const parameterDefinition: JsonLS.JSONSchema = {
                     default: {
                         type: "boolean",
                     },
+                    allowedValues: {
+                        items: {
+                            type: "boolean",
+                        },
+                    },
                 },
             },
         },
@@ -94,6 +101,11 @@ export const parameterDefinition: JsonLS.JSONSchema = {
                 properties: {
                     default: {
                         type: "number",
+                    },
+                    allowedValues: {
+                        items: {
+                            type: "number",
+                        },
                     },
                 },
             },
@@ -109,6 +121,11 @@ export const parameterDefinition: JsonLS.JSONSchema = {
                             type: "string",
                         },
                     },
+                    allowedValues: {
+                        items: {
+                            type: ["string", "array"],
+                        },
+                    },
                 },
             },
         },
@@ -119,6 +136,11 @@ export const parameterDefinition: JsonLS.JSONSchema = {
             then: {
                 properties: {
                     default: {
+                        items: {
+                            type: "object",
+                        },
+                    },
+                    allowedValues: {
                         items: {
                             type: "object",
                         },
@@ -138,6 +160,11 @@ export const parameterDefinition: JsonLS.JSONSchema = {
                             items: {
                                 type: "object",
                             },
+                        },
+                    },
+                    allowedValues: {
+                        items: {
+                            type: ["object", "array"],
                         },
                     },
                 },
