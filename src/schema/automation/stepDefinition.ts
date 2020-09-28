@@ -16,7 +16,11 @@ import { deleteImageInputs, deleteImageSnippet } from "./actions/deleteImage";
 import { deleteStackInputs, deleteStackSnippet } from "./actions/deleteStack";
 import { executeAutomationInputs, executeAutomationSnippet } from "./actions/executeAutomation";
 import { executeAwsApiInputs, executeAwsApiSnippet } from "./actions/executeAwsApi";
-import { executeScriptInputs, executeScriptSnippet } from "./actions/executeScript";
+import {
+    executeScriptInputs,
+    executeScriptPowershellSnippet,
+    executeScriptPythonSnippet,
+} from "./actions/executeScript";
 import { executeStateMachineInputs, executeStateMachineSnippet } from "./actions/executeStateMachine";
 import { invokeLambdaFunctionInputs, invokeLambdaFunctionSnippet } from "./actions/invokeLambdaFunction";
 import { pauseInputs, pauseSnippet } from "./actions/pause";
@@ -264,7 +268,8 @@ export const stepDefinition: JsonLS.JSONSchema = {
         deleteStackSnippet,
         executeAutomationSnippet,
         executeAwsApiSnippet,
-        executeScriptSnippet,
+        executeScriptPythonSnippet,
+        executeScriptPowershellSnippet,
         executeStateMachineSnippet,
         invokeLambdaFunctionSnippet,
         pauseSnippet,

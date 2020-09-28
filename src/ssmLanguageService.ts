@@ -7,6 +7,7 @@ import * as JsonLS from "vscode-json-languageservice";
 import * as YamlLS from "yaml-language-server";
 import { parse as parseYaml } from "yaml-language-server/out/server/src/languageservice/parser/yamlParser07";
 import { ssmDocumentSchema } from "./schema/ssmDocumentSchema";
+import { fixYamlCompletionList } from "./util/yamlCompletionUtils";
 
 export { JsonLS };
 
@@ -112,7 +113,14 @@ class SsmLanguageServiceImpl implements SsmLanguageService {
         if (document.languageId === "ssm-json") {
             return await this.jsonLanguageService.doComplete(document, position, jsonDocument);
         } else {
-            return await this.yamlLanguageService.doComplete(document, position, false);
+            const completionList = await this.yamlLanguageService.doComplete(document, position, false);
+
+            const prefixRange = JsonLS.Range.create(JsonLS.Position.create(position.line, 0), position);
+            const prefix = document.getText(prefixRange);
+            const fixYamlIndentationFlag = prefix.trimLeft().startsWith("-");
+            fixYamlCompletionList(completionList.items, fixYamlIndentationFlag);
+
+            return completionList;
         }
     }
 
