@@ -51,21 +51,69 @@ export const executeScriptInputs: JsonLS.JSONSchema = {
     },
 };
 
-export const executeScriptSnippet: SnippetDefinition = {
-    label: "Snippet: aws:executeScript",
-    description:
-        "Runs the Python or PowerShell script provided, using the specified runtime and handler. (For PowerShell, the handler is not required.)\n\nCurrently, the aws:executeScript action contains the following preinstalled PowerShell Core modules.\n\n\tMicrosoft.PowerShell.Host\n\n\tMicrosoft.PowerShell.Management\n\n\tMicrosoft.PowerShell.Security\n\n\tMicrosoft.PowerShell.Utility\n\n\tPackageManagement\n\n\tPowerShellGet",
+const pythonScript = `def handler(events, context):
+    param1 = events['parameter1']
+    param2 = events['parameter2']
+    print(param1, param2, sep='\\n')
+    return {
+        'Message': 'Hello World'
+    }`;
+
+export const executeScriptPythonSnippet: SnippetDefinition = {
+    label: "Snippet: aws:executeScript using Python",
+    description: "Runs the Python script provided, using the specified runtime and handler.",
     body: {
-        name: "${1:executeScript}",
+        name: "${1:executePythonScript}",
         action: "aws:executeScript",
         inputs: {
-            Runtime: "python3.6",
-            Handler: "script_handler",
+            Runtime: "python3.7",
             InputPayload: {
                 parameter1: "parameter_value1",
                 parameter2: "parameter_value2",
             },
-            Attachment: "zip-file-name-1.zip",
+            Handler: "handler",
+            Script: pythonScript,
         },
+        outputs: [
+            {
+                Name: "Message",
+                Selector: "$.Payload.Message",
+                Type: "String",
+            },
+        ],
+    },
+};
+
+const powershellScript = `Write-Host 'hello world';
+\\$inputPayload = $env:InputPayload | ConvertFrom-Json;
+\\$param1 = \\$inputPayload.parameter1;
+\\$param2 = \\$inputPayload.parameter2;
+Write-Host \\$param1;
+Write-Host \\$param2;
+return @\\{Message="Hello World"\\}
+`;
+
+export const executeScriptPowershellSnippet: SnippetDefinition = {
+    label: "Snippet: aws:executeScript using Powershell",
+    description:
+        "Runs the PowerShell script provided, using the specified runtime.\n\nCurrently, the aws:executeScript action contains the following preinstalled PowerShell Core modules.\n\n\tMicrosoft.PowerShell.Host\n\n\tMicrosoft.PowerShell.Management\n\n\tMicrosoft.PowerShell.Security\n\n\tMicrosoft.PowerShell.Utility\n\n\tPackageManagement\n\n\tPowerShellGet",
+    body: {
+        name: "${1:executePowershellScript}",
+        action: "aws:executeScript",
+        inputs: {
+            Runtime: "PowerShell Core 6.0",
+            InputPayload: {
+                parameter1: "parameter_value1",
+                parameter2: "parameter_value2",
+            },
+            Script: powershellScript,
+        },
+        outputs: [
+            {
+                Name: "Message",
+                Selector: "$.Payload.Message",
+                Type: "String",
+            },
+        ],
     },
 };

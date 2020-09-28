@@ -132,6 +132,7 @@ connection.onInitialize(
                 : undefined,
             hoverProvider: true,
             documentSymbolProvider: true,
+            documentFormattingProvider: true,
             // tslint:disable-next-line: no-unsafe-any
             documentRangeFormattingProvider: params.initializationOptions.provideFormatter === true,
             colorProvider: {},
@@ -266,6 +267,26 @@ connection.onDocumentSymbol((documentSymbolParams, token) => {
         },
         [],
         `Error while computing document symbols for ${documentSymbolParams.textDocument.uri}`,
+        token
+    );
+});
+
+connection.onDocumentFormatting((formatParams, token) => {
+    return runSafe(
+        () => {
+            const document = documents.get(formatParams.textDocument.uri);
+            if (document) {
+                const range = JsonLS.Range.create(
+                    JsonLS.Position.create(0, 0),
+                    document.positionAt(document.getText().length)
+                );
+                return languageService.format(document, range, formatParams.options);
+            }
+
+            return [];
+        },
+        [],
+        `Error while formatting range for ${formatParams.textDocument.uri}`,
         token
     );
 });

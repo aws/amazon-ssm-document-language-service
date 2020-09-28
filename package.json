@@ -44,6 +44,7 @@
     "dependencies": {
         "vscode-json-languageservice": "3.8.3",
         "vscode-languageserver": "^6.1.1",
+        "yaml": "^1.10.0",
         "yaml-language-server": "0.10.1"
     },
     "scripts": {
