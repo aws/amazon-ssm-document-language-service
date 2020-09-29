@@ -2,7 +2,7 @@
     "name": "aws-ssm-document-language-service",
     "displayName": "AWS Systems Manager Document Language Service",
     "description": "A language server for AWS Systems Manager documents",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "publisher": "aws",
     "license": "Apache-2.0",
     "repository": {
