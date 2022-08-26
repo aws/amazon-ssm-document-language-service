@@ -54,7 +54,7 @@ const config = {
     },
     plugins: [
         new CircularDependencyPlugin({
-            exclude: /node_modules/,
+            exclude: /(node_modules|src\/util|src\/ssmLanguageService\.ts|src\/ssmServer\.ts)/,
             failOnError: true,
         }),
     ],
