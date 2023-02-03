@@ -14,11 +14,11 @@ export const executeScriptInputs: JsonLS.JSONSchema = {
             properties: {
                 Runtime: {
                     description:
-                        "The runtime language to be used for executing the provided script. Currently, aws:executeScript supports Python 3.6 (python3.6), Python 3.7 (python3.7), and PowerShell Core 6.0 (dotnetcore2.1) scripts.",
+                        "The runtime language to be used for executing the provided script. Currently, aws:executeScript supports Python 3.6 (python3.6), Python 3.7 (python3.7), Python 3.8 (python3.8), PowerShell Core 6.0 (dotnetcore2.1), and PowerShell 7.0 (dotnetcore3.1) scripts.",
                     type: "string",
                     oneOf: [
                         {
-                            enum: ["python3.6", "python3.7", "PowerShell Core 6.0"],
+                            enum: ["python3.6", "python3.7", "python3.8", "PowerShell Core 6.0", "PowerShell 7.0"],
                         },
                         {
                             pattern: "^{{[ ]{0,1}[a-zA-Z_.]+[ ]{0,1}}}$",
