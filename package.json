@@ -45,7 +45,7 @@
     "dependencies": {
         "vscode-json-languageservice": "3.8.3",
         "vscode-languageserver": "^6.1.1",
-        "yaml": "^1.10.0",
+        "yaml": "^2.2.2",
         "yaml-language-server": "0.10.1",
         "glob-parent": ">=5.1.2"
     },
