@@ -36,7 +36,7 @@
         "eslint-plugin-header": "^3.1.0",
         "eslint-plugin-prettier": "^3.1.4",
         "terser-webpack-plugin": "^4.2.0",
-        "ts-loader": "^8.0.3",
+        "ts-loader": "^9.6.2",
         "typescript": "^3.9.5",
         "glob-parent": ">=5.1.2",
         "webpack": "^5.74.0",
