@@ -31,7 +31,7 @@
         "@typescript-eslint/eslint-plugin": "^4.1.0",
         "@typescript-eslint/parser": "^4.1.0",
         "circular-dependency-plugin": "^5.2.0",
-        "eslint": "^7.8.1",
+        "eslint": "^10.8.1",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-header": "^3.1.0",
         "eslint-plugin-prettier": "^3.1.4",
@@ -46,7 +46,7 @@
         "vscode-json-languageservice": "3.8.3",
         "vscode-languageserver": "^6.1.1",
         "yaml": "^1.10.0",
-        "yaml-language-server": "0.10.1",
+        "yaml-language-server": "1.24.0",
         "glob-parent": ">=5.1.2"
     },
     "scripts": {
